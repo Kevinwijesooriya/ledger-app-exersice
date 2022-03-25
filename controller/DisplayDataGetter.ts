@@ -1,0 +1,3 @@
+interface DisplayDataGetter {
+  getDisplayDetails();
+}
