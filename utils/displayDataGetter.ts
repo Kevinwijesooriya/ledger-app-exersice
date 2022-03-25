@@ -1,3 +1,4 @@
 interface DisplayDataGetter {
-  GetDisplayDetails();
+  getDisplayDetails();
 }
+export { DisplayDataGetter };
