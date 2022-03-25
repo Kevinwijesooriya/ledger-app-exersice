@@ -1,5 +1,5 @@
-interface InputController {
-  tokkanizedDataSat: String[];
+class InputController {
+  toKanizeDtatSet: String;
 
-  tokanize();
+  toKanize() {}
 }
