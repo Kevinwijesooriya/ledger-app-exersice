@@ -34,3 +34,4 @@ class Loan {
   SetInterest(): void {}
   SetAmountToPay(): void {}
 }
+export { Loan };

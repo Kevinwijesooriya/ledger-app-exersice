@@ -3,3 +3,5 @@ class InputController {
 
   toKanize() {}
 }
+
+export { InputController };
