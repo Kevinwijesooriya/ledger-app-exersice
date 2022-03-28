@@ -8,9 +8,11 @@ class FileReader {
       if (err) throw err;
       const inputData = data.toString().replace(/\r\n/g, "\n").split("\n");
       new InputController(inputData);
+
+      console.log(inputData);
     });
   }
 }
 export { FileReader };
-const fileReader = new FileReader;
-fileReader.readInputFile("input1.txt")
+const fileReader = new FileReader();
+fileReader.readInputFile("input1.txt");

@@ -10,7 +10,7 @@ class Customer implements DisplayDataGetter {
   get getname() {
     return this.name;
   }
-  
+
   getDisplayDetails() {
     return console.log(this.name);
   }

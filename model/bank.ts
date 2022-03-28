@@ -1,19 +1,18 @@
 import { DisplayDataGetter } from "../utils/displayDataGetter";
 
-class Bank implements DisplayDataGetter{
-    bankName: number;
-  
-    constructor(bankName) {
-      this.bankName = bankName;
-    }
-  
-    get getbankName() {
-      return this.bankName;
-    }
+class Bank implements DisplayDataGetter {
+  bankName: number;
 
-    getDisplayDetails() {
-      return console.log(this.bankName);
-    }
-
+  constructor(bankName) {
+    this.bankName = bankName;
   }
-  export { Bank };
+
+  get getbankName() {
+    return this.bankName;
+  }
+
+  getDisplayDetails() {
+    return console.log(this.bankName);
+  }
+}
+export { Bank };

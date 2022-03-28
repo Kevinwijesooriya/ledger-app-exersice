@@ -8,13 +8,14 @@ class InputController {
   constructor(inputData) {
     this.tokanize(inputData);
   }
- 
-  
 
   tokanize(inputData) {
     for (let i = 0; i < inputData.length; i++) {
       const token = inputData[i].split(" ");
       const key = token[0];
+
+      console.log("received data to input controller:" + key);
+
       switch (key) {
         case "LOAN":
           new LoanController(token);
