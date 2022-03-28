@@ -1,4 +1,5 @@
-class inputSetter {
-  setInputDetails() {}
+interface inputSetter {
+  setInputDetails();
 }
+
 export { inputSetter };
