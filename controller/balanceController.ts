@@ -1,6 +1,4 @@
 class BalanceController {
-    constructor(input){
-
-    }
+  constructor(input) {}
 }
 export { BalanceController };

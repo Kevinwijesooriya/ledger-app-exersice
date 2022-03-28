@@ -1,6 +1,4 @@
 class PaymentController {
-    constructor(input){
-
-    }
-  }
-  export { PaymentController };
+  constructor(input) {}
+}
+export { PaymentController };
