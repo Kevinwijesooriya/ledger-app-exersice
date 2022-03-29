@@ -7,7 +7,7 @@ class Bank implements DisplayDataGetter {
     this.bankName = bankName;
   }
 
-  get getbankName() {
+  getbankName() {
     return this.bankName;
   }
 

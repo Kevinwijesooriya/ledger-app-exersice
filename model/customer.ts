@@ -7,7 +7,7 @@ class Customer implements DisplayDataGetter {
     this.name = name;
   }
 
-  get getname() {
+  getname() {
     return this.name;
   }
 

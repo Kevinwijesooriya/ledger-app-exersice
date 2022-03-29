@@ -7,11 +7,11 @@ class Balance {
     this.emiMonthsLeft = emiMonthsLeft;
   }
 
-  get getamountPaid() {
+  getamountPaid() {
     return this.amountPaid;
   }
 
-  get getemiMonthsLeft() {
+  getemiMonthsLeft() {
     return this.emiMonthsLeft;
   }
 }
