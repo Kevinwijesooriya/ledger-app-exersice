@@ -12,7 +12,6 @@ var InputController = /** @class */ (function () {
         for (var i = 0; i < inputData.length; i++) {
             var token = inputData[i].split(" ");
             var key = token[0];
-            console.log("received data to input controller:" + key);
             switch (key) {
                 case "LOAN":
                     var loanController = new loanController_1.LoanController(token);
