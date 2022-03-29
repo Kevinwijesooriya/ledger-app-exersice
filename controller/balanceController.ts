@@ -12,7 +12,6 @@ class BalanceController implements inputSetter {
     // this.amountPaid = this.calculateAmountPaid();
     // this.emiMonthsLeft = this.calculateEmiMonthsLeft();
     new Balance(this.amountPaid, this.emiMonthsLeft);
-    console.log("received data to payment controller:");
   }
 
   calculateAmountPaid() {

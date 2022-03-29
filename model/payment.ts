@@ -7,11 +7,11 @@ class Payment {
     this.emiNum = emiNum;
   }
 
-  get getLumpSum() {
+  getLumpSum() {
     return this.lumpSum;
   }
 
-  get getEmiNum() {
+  getEmiNum() {
     return this.emiNum;
   }
 }
