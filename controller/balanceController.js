@@ -9,7 +9,6 @@ var BalanceController = /** @class */ (function () {
         // this.amountPaid = this.calculateAmountPaid();
         // this.emiMonthsLeft = this.calculateEmiMonthsLeft();
         new balance_1.Balance(this.amountPaid, this.emiMonthsLeft);
-        console.log("received data to payment controller:");
     };
     BalanceController.prototype.calculateAmountPaid = function () {
         // return amountPaid;
