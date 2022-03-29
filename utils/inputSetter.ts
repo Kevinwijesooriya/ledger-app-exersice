@@ -1,5 +1,5 @@
 interface inputSetter {
-  setInputDetails();
+  setInputDetails(input);
 }
 
 export { inputSetter };

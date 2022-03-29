@@ -18,15 +18,18 @@ class InputController {
 
       switch (key) {
         case "LOAN":
-          new LoanController(token);
+          const loanController = new LoanController(token);
+          loanController.allocateLoan();
 
           break;
         case "PAYMENT":
-          new PaymentController(token);
+          const paymentController = new PaymentController(token);
+          // paymentController.();
 
           break;
         case `BALANCE`:
-          new BalanceController(token);
+          const balanceController = new BalanceController(token);
+          // balanceController.();
 
           break;
       }

@@ -4,14 +4,23 @@ class Loan {
   NumberOfYear: Number;
   Interest: Number;
   AmountToPay: Number;
-  EmiAount: Number;
-  Paymnent: Number;
+  EmiAmount: Number;
+  Payment: Number;
 
-  constructor(LoanData) {
-    this.PrincipalAmount = LoanData[1];
-    this.rate = LoanData[2];
-    this.NumberOfYear = LoanData[3];
-    this.Interest = LoanData[4];
+  constructor(
+    PrincipalAmount,
+    NumberOfYear,
+    rate,
+    Interest,
+    AmountToPay,
+    EmiAmount
+  ) {
+    this.PrincipalAmount = PrincipalAmount;
+    this.NumberOfYear = NumberOfYear;
+    this.rate = rate;
+    this.Interest = Interest;
+    this.AmountToPay = AmountToPay;
+    this.EmiAmount = EmiAmount;
     this.GetPrincipleAmount();
   }
 
@@ -20,7 +29,9 @@ class Loan {
       this.PrincipalAmount,
       this.rate,
       this.NumberOfYear,
-      this.Interest
+      this.Interest,
+      this.AmountToPay,
+      this.EmiAmount
     );
   }
   GetRate(): void {}
