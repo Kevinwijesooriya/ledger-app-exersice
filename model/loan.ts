@@ -32,11 +32,11 @@ class Loan {
 
   GetPrincipleAmount(): void {
     console.log(
-      this.PrincipalAmount,
-      this.rate,
-      this.NumberOfYear,
-      this.Interest,
-      this.AmountToPay,
+      this.PrincipalAmount, ' , ', 
+      this.rate, ' , ',
+      this.NumberOfYear, ' , ',
+      this.Interest, ' , ',
+      this.AmountToPay, ' , ',
       this.EmiAmount
     );
   }

@@ -14,12 +14,14 @@ class LoanController implements inputSetter {
     const PrincipalAmount = input[3];
     const NumberOfYear = input[4];
     const rate = input[5];
-    const Interest = this.calculateInterestAmount(
+    const Interest: Number = this.calculateInterestAmount(
       PrincipalAmount,
       NumberOfYear,
       rate
     );
-    const AmountToPay = PrincipalAmount + Interest;
+    const AmountToPay: Number =
+      Number.parseInt(PrincipalAmount.toString()) +
+      Number.parseFloat(Interest.toString());
     const EmiAmount = this.calculateInterestAmount(
       PrincipalAmount,
       NumberOfYear,
@@ -36,7 +38,6 @@ class LoanController implements inputSetter {
       AmountToPay,
       EmiAmount
     );
-    console.log("received data to loan controller");
   }
 
   allocateLoan() {

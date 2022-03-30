@@ -3,8 +3,6 @@ import { LoanController } from "./loanController";
 import { PaymentController } from "./paymentController";
 
 class InputController {
-  toKanizeDtatSet: String;
-
   constructor(inputData) {
     this.tokanize(inputData);
   }
@@ -14,13 +12,10 @@ class InputController {
       const token = inputData[i].split(" ");
       const key = token[0];
 
-      console.log("received data to input controller:" + key);
-
       switch (key) {
         case "LOAN":
           const loanController = new LoanController(token);
           loanController.allocateLoan();
-
           break;
         case "PAYMENT":
           const paymentController = new PaymentController(token);
