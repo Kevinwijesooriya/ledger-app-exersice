@@ -17,13 +17,16 @@ var BankController = /** @class */ (function () {
         return this.paymentData;
     };
     BankController.storeData = function (bankController) {
-        // console.log('bankController ::::::: ',bankController)
         this.allData.push(bankController);
     };
     BankController.findAccount = function (BankName, Name) {
-        console.log('find account loan data ::::::: ', this.allData);
-        var loan = { BankName: 'IDIDI', Name: 'Dale', PrincipalAmount: '5000', NumberOfYear: '1', rate: '6', Interest: 300, AmountToPay: 5300, EmiAmount: 300 };
-        return loan;
+        var accountIndex;
+        for (var i = 0; i < this.allData.length; i++) {
+            if (this.allData[i].loanData.BankName === BankName && this.allData[i].loanData.Name === Name) {
+                accountIndex = i;
+            }
+        }
+        return this.allData[accountIndex].loanData;
     };
     BankController.allData = [];
     return BankController;
