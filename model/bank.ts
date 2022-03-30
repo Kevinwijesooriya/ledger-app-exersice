@@ -1,13 +1,13 @@
 import { DisplayDataGetter } from "../utils/displayDataGetter";
 
 class Bank implements DisplayDataGetter {
-  bankName: number;
+  bankName: string;
 
   constructor(bankName) {
     this.bankName = bankName;
   }
 
-  get getbankName() {
+  getbankName() {
     return this.bankName;
   }
 

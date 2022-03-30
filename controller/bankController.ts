@@ -6,6 +6,7 @@ class BankController {
   emiMonthsLeft: number;
   loanData: Loan;
   paymentData: Payment[];
+  static allData: Array<BankController>;
 
   constructor(loanData: Loan) {
     this.loanData = loanData;
@@ -15,5 +16,20 @@ class BankController {
   addPaymentData(paymentData: Payment) {
     this.paymentData.push(paymentData);
   }
+
+  getLoanData() {
+    return this.loanData;
+  }
+
+  getPaymentData() {
+    return this.paymentData;
+  }
+
+  static storeData(bankController: BankController) {
+    this.allData = [];
+    this.allData.push(bankController);
+  }
+
+  static findAccount(BankName: string, Name: string): any {}
 }
 export { BankController };

@@ -9,6 +9,8 @@ class LoanController implements inputSetter {
     this.setInputDetails(input);
   }
   public setInputDetails(input) {
+    const BankName = input[1];
+    const Name = input[2];
     const PrincipalAmount = input[3];
     const NumberOfYear = input[4];
     const rate = input[5];
@@ -25,6 +27,8 @@ class LoanController implements inputSetter {
     );
 
     this.loanData = new Loan(
+      BankName,
+      Name,
       PrincipalAmount,
       NumberOfYear,
       rate,
@@ -37,6 +41,7 @@ class LoanController implements inputSetter {
 
   allocateLoan() {
     const bankController = new BankController(this.loanData);
+    BankController.storeData(bankController);
   }
   calculateEmiAmount(AmountToPay, NumberOfYear) {
     return Math.ceil(AmountToPay / (NumberOfYear * 12));

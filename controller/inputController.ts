@@ -24,12 +24,12 @@ class InputController {
           break;
         case "PAYMENT":
           const paymentController = new PaymentController(token);
-          // paymentController.();
+          paymentController.addPaymentData();
 
           break;
         case `BALANCE`:
           const balanceController = new BalanceController(token);
-          // balanceController.();
+          balanceController.displayBalanceDetails();
 
           break;
       }

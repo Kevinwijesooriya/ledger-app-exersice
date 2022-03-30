@@ -1,4 +1,6 @@
 class Loan {
+  BankName: string;
+  Name: string;
   PrincipalAmount: Number;
   rate: Number;
   NumberOfYear: Number;
@@ -8,6 +10,8 @@ class Loan {
   Payment: Number;
 
   constructor(
+    BankName,
+    Name,
     PrincipalAmount,
     NumberOfYear,
     rate,
@@ -15,6 +19,8 @@ class Loan {
     AmountToPay,
     EmiAmount
   ) {
+    this.BankName = BankName;
+    this.Name = Name;
     this.PrincipalAmount = PrincipalAmount;
     this.NumberOfYear = NumberOfYear;
     this.rate = rate;
@@ -34,6 +40,7 @@ class Loan {
       this.EmiAmount
     );
   }
+
   GetRate(): void {}
   GetNumberOfYears(): void {}
   GetInterest(): void {}
@@ -41,6 +48,12 @@ class Loan {
   GetAmountToPay(): void {}
   SetInterest(): void {}
   SetAmountToPay(): void {}
+  getBankName() {
+    return this.BankName;
+  }
+  getName() {
+    return this.Name;
+  }
 }
 
 export { Loan };
