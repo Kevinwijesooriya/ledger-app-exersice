@@ -7,7 +7,6 @@ var BankController = /** @class */ (function () {
         this.paymentData = Array();
     }
     BankController.prototype.addPaymentData = function (paymentData) {
-        console.log;
         this.paymentData.push(paymentData);
     };
     BankController.prototype.getLoanData = function () {
@@ -21,8 +20,17 @@ var BankController = /** @class */ (function () {
         this.allData.push(bankController);
     };
     BankController.findAccount = function (BankName, Name) {
-        console.log('find account loan data ::::::: ', this.allData);
-        var loan = { BankName: 'IDIDI', Name: 'Dale', PrincipalAmount: '5000', NumberOfYear: '1', rate: '6', Interest: 300, AmountToPay: 5300, EmiAmount: 300 };
+        console.log("find account loan data ::::::: ", this.allData);
+        var loan = {
+            BankName: "IDIDI",
+            Name: "Dale",
+            PrincipalAmount: "5000",
+            NumberOfYear: "1",
+            rate: "6",
+            Interest: 300,
+            AmountToPay: 5300,
+            EmiAmount: 300
+        };
         return loan;
     };
     BankController.allData = [];

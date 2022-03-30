@@ -16,11 +16,10 @@ class BankController {
   }
 
   addPaymentData(paymentData: Payment) {
-    console.log
     this.paymentData.push(paymentData);
   }
 
- getLoanData() {
+  getLoanData() {
     return this.loanData;
   }
 
@@ -34,9 +33,18 @@ class BankController {
   }
 
   static findAccount(BankName: string, Name: string): any {
-    console.log('find account loan data ::::::: ',this.allData)
-    let loan = {BankName: 'IDIDI', Name: 'Dale',PrincipalAmount: '5000',NumberOfYear: '1',rate: '6',Interest: 300,AmountToPay: 5300,EmiAmount: 300}
-    return loan
+    console.log("find account loan data ::::::: ", this.allData);
+    let loan = {
+      BankName: "IDIDI",
+      Name: "Dale",
+      PrincipalAmount: "5000",
+      NumberOfYear: "1",
+      rate: "6",
+      Interest: 300,
+      AmountToPay: 5300,
+      EmiAmount: 300,
+    };
+    return loan;
   }
 }
 export { BankController };

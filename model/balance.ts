@@ -4,14 +4,9 @@ class Balance {
   EmiAmount: any;
   AmountToPay: any;
 
-  checkMonth: Number;
-
-  constructor() {}
-
-  setValues(PaymentData) {
-    this.checkMonth = PaymentData[3];
-
-    console.log("balance model class:" + this.checkMonth);
+  constructor(amountPaid, emiMonthsLeft) {
+    this.amountPaid = amountPaid;
+    this.emiMonthsLeft = emiMonthsLeft;
   }
 
   getamountPaid() {
