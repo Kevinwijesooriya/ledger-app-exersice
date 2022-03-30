@@ -18,7 +18,8 @@ class InputController {
 
       switch (key) {
         case "LOAN":
-          new LoanController(token);
+          const ob1 = new LoanController();
+          ob1.setValues(token);
 
           break;
         case "PAYMENT":
@@ -26,7 +27,10 @@ class InputController {
 
           break;
         case `BALANCE`:
-          new BalanceController(token);
+          const ob2 = new BalanceController();
+          ob2.setValues(token);
+          // ob2.CalculateAmountPaid();
+          // ob2.displayDetails();
 
           break;
       }

@@ -2,16 +2,22 @@ class Payment {
   lumpSum: number;
   emiNum: number;
 
-  constructor(lumpSum, emiNum) {
-    this.lumpSum = lumpSum;
-    this.emiNum = emiNum;
+  constructor() {}
+
+  setValues(inputData) {
+    this.lumpSum = inputData[3];
+    this.emiNum = inputData[4];
+
+    console.log(this.lumpSum);
+    console.log(this.emiNum);
   }
 
-  get getLumpSum() {
+  getLumpSum() {
+    console.log("ddddddd:" + this.lumpSum);
     return this.lumpSum;
   }
 
-  get getEmiNum() {
+  getEmiNum() {
     return this.emiNum;
   }
 }

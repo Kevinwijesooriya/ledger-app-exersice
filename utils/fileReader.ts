@@ -15,4 +15,4 @@ class FileReader {
 }
 export { FileReader };
 const fileReader = new FileReader();
-fileReader.readInputFile("input1.txt");
+fileReader.readInputFile("input2.txt");

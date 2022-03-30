@@ -1,35 +1,54 @@
+import { LoanController } from "../controller/loanController";
 class Loan {
-  PrincipalAmount: Number;
-  rate: Number;
-  NumberOfYear: Number;
-  Interest: Number;
-  AmountToPay: Number;
-  EmiAount: Number;
-  Paymnent: Number;
+  PrincipalAmount: number;
+  rate: number;
+  NumberOfYear: number;
+  Interest: number;
+  public AmountToPay: number;
+  EmiAount: number;
 
-  constructor(LoanData) {
-    this.PrincipalAmount = LoanData[1];
-    this.rate = LoanData[2];
-    this.NumberOfYear = LoanData[3];
-    this.Interest = LoanData[4];
+  Paymnent: number;
+
+  constructor() {}
+
+  setValues(LoanData, Interest, AmountToPay, EmiAount) {
+    this.PrincipalAmount = LoanData[3];
+    this.rate = LoanData[5];
+    this.NumberOfYear = LoanData[4];
+    this.Interest = Interest;
+    this.AmountToPay = AmountToPay;
+    this.EmiAount = EmiAount;
+
     this.GetPrincipleAmount();
   }
 
   GetPrincipleAmount(): void {
     console.log(
-      this.PrincipalAmount,
+      "loan modle class:" + this.PrincipalAmount,
       this.rate,
       this.NumberOfYear,
-      this.Interest
+
+      this.Interest,
+      this.AmountToPay,
+      this.EmiAount
     );
   }
-  GetRate(): void {}
-  GetNumberOfYears(): void {}
-  GetInterest(): void {}
-  GetEmiAmount(): void {}
-  GetAmountToPay(): void {}
-  SetInterest(): void {}
-  SetAmountToPay(): void {}
+  GetRate() {
+    return this.rate;
+  }
+  GetNumberOfYears() {
+    return this.NumberOfYear;
+  }
+  GetInterest() {
+    return this.Interest;
+  }
+  public GetEmiAmount(): number {
+    console.log("dddddd:" + this.AmountToPay);
+    return this.AmountToPay;
+  }
+  GetAmountToPay() {
+    return this.AmountToPay;
+  }
 }
 
 export { Loan };
