@@ -29,14 +29,19 @@ class BankController {
   }
 
   static storeData(bankController: BankController) {
-    // console.log('bankController ::::::: ',bankController)
     this.allData.push(bankController);
   }
 
   static findAccount(BankName: string, Name: string): any {
-    console.log('find account loan data ::::::: ',this.allData)
-    let loan = {BankName: 'IDIDI', Name: 'Dale',PrincipalAmount: '5000',NumberOfYear: '1',rate: '6',Interest: 300,AmountToPay: 5300,EmiAmount: 300}
-    return loan
+    let accountIndex;
+    
+    for(let i=0; i<this.allData.length; i++){
+      if(this.allData[i].loanData.BankName  === BankName && this.allData[i].loanData.Name  === Name){
+        accountIndex = i
+      }
+    }
+
+    return this.allData[accountIndex].loanData
   }
 }
 export { BankController };

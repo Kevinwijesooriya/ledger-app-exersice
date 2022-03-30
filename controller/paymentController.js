@@ -14,7 +14,6 @@ var PaymentController = /** @class */ (function () {
         var emiNum = input[4];
         this.bankController = bankController_1.BankController.findAccount(BankName, Name);
         this.paymentData = new payment_1.Payment(lumpSum, emiNum);
-        console.log("received data to payment controller:");
     };
     PaymentController.prototype.addPaymentData = function () {
         this.bankController.addPaymentData(this.paymentData);

@@ -18,7 +18,6 @@ class PaymentController implements inputSetter {
     const emiNum = input[4];
     this.bankController = BankController.findAccount(BankName, Name);
     this.paymentData = new Payment(lumpSum, emiNum);
-    console.log("received data to payment controller:");
   }
 
   addPaymentData() {
