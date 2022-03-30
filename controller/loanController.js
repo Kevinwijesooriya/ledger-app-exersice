@@ -2,36 +2,58 @@
 exports.__esModule = true;
 exports.LoanController = void 0;
 var loan_1 = require("../model/loan");
+var bankController_1 = require("./bankController");
 var LoanController = /** @class */ (function () {
-    function LoanController() {
-    }
-    LoanController.prototype.setValues = function (input) {
-        this.GetInput = input;
-        this.setInputDetails();
-        this.CalculateInterest();
-        this.CalculateAmountToPay();
-        this.CalculateEmiAmount();
-    };
-    LoanController.prototype.CalculateInterest = function () {
-        this.interest =
-            this.GetInput[3] * this.GetInput[4] * (this.GetInput[5] / 100);
-        return this.interest;
-    };
-    LoanController.prototype.CalculateAmountToPay = function () {
-        this.repayAmount = -(-this.GetInput[3] - this.interest);
-        return this.repayAmount;
-    };
-    LoanController.prototype.CalculateEmiAmount = function () {
-        this.emi = Math.ceil((this.repayAmount / 12) * this.GetInput[4]);
-        return this.emi;
-    };
-    LoanController.prototype.setInputDetails = function () {
-        var x = this.CalculateInterest();
-        var y = this.CalculateAmountToPay();
-        var v = this.CalculateEmiAmount();
-        var ob = new loan_1.Loan();
-        ob.setValues(this.GetInput, x, y, v);
-    };
-    return LoanController;
-}());
+  function LoanController(input) {
+    this.setInputDetails(input);
+  }
+  LoanController.prototype.setInputDetails = function (input) {
+    var BankName = input[1];
+    var Name = input[2];
+    var PrincipalAmount = input[3];
+    var NumberOfYear = input[4];
+    var rate = input[5];
+    var Interest = this.calculateInterestAmount(
+      PrincipalAmount,
+      NumberOfYear,
+      rate
+    );
+    var AmountToPay =
+      Number.parseInt(PrincipalAmount.toString()) +
+      Number.parseFloat(Interest.toString());
+    var EmiAmount = this.calculateInterestAmount(
+      PrincipalAmount,
+      NumberOfYear,
+      rate
+    );
+    this.loanData = new loan_1.Loan(
+      BankName,
+      Name,
+      PrincipalAmount,
+      NumberOfYear,
+      rate,
+      Interest,
+      AmountToPay,
+      EmiAmount
+    );
+  };
+  LoanController.prototype.allocateLoan = function () {
+    var bankController = new bankController_1.BankController(this.loanData);
+    bankController_1.BankController.storeData(bankController);
+  };
+  LoanController.prototype.calculateEmiAmount = function (
+    AmountToPay,
+    NumberOfYear
+  ) {
+    return Math.ceil(AmountToPay / (NumberOfYear * 12));
+  };
+  LoanController.prototype.calculateInterestAmount = function (
+    PrincipalAmount,
+    NumberOfYear,
+    rate
+  ) {
+    return Math.ceil((PrincipalAmount * NumberOfYear * rate) / 100);
+  };
+  return LoanController;
+})();
 exports.LoanController = LoanController;

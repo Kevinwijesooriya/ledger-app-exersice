@@ -1,53 +1,64 @@
 import { LoanController } from "../controller/loanController";
 class Loan {
-  PrincipalAmount: number;
-  rate: number;
-  NumberOfYear: number;
-  Interest: number;
-  public AmountToPay: number;
-  EmiAount: number;
+  BankName: string;
+  Name: string;
+  PrincipalAmount: Number;
+  rate: Number;
+  NumberOfYear: Number;
+  Interest: Number;
+  AmountToPay: Number;
+  EmiAmount: Number;
+  Payment: Number;
 
-  Paymnent: number;
-
-  constructor() {}
-
-  setValues(LoanData, Interest, AmountToPay, EmiAount) {
-    this.PrincipalAmount = LoanData[3];
-    this.rate = LoanData[5];
-    this.NumberOfYear = LoanData[4];
+  constructor(
+    BankName,
+    Name,
+    PrincipalAmount,
+    NumberOfYear,
+    rate,
+    Interest,
+    AmountToPay,
+    EmiAmount
+  ) {
+    this.BankName = BankName;
+    this.Name = Name;
+    this.PrincipalAmount = PrincipalAmount;
+    this.NumberOfYear = NumberOfYear;
+    this.rate = rate;
     this.Interest = Interest;
     this.AmountToPay = AmountToPay;
-    this.EmiAount = EmiAount;
-
+    this.EmiAmount = EmiAmount;
     this.GetPrincipleAmount();
   }
 
   GetPrincipleAmount(): void {
     console.log(
-      "loan modle class:" + this.PrincipalAmount,
+      this.PrincipalAmount,
+      " , ",
       this.rate,
+      " , ",
       this.NumberOfYear,
-
+      " , ",
       this.Interest,
+      " , ",
       this.AmountToPay,
-      this.EmiAount
+      " , ",
+      this.EmiAmount
     );
   }
-  GetRate() {
-    return this.rate;
+
+  GetRate(): void {}
+  GetNumberOfYears(): void {}
+  GetInterest(): void {}
+  GetEmiAmount(): void {}
+  GetAmountToPay(): void {}
+  SetInterest(): void {}
+  SetAmountToPay(): void {}
+  getBankName() {
+    return this.BankName;
   }
-  GetNumberOfYears() {
-    return this.NumberOfYear;
-  }
-  GetInterest() {
-    return this.Interest;
-  }
-  public GetEmiAmount(): number {
-    console.log("dddddd:" + this.AmountToPay);
-    return this.AmountToPay;
-  }
-  GetAmountToPay() {
-    return this.AmountToPay;
+  getName() {
+    return this.Name;
   }
 }
 

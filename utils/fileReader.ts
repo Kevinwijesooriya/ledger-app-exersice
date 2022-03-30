@@ -8,8 +8,6 @@ class FileReader {
       if (err) throw err;
       const inputData = data.toString().replace(/\r\n/g, "\n").split("\n");
       new InputController(inputData);
-
-      console.log(inputData);
     });
   }
 }

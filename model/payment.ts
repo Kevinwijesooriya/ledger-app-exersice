@@ -13,7 +13,6 @@ class Payment {
   }
 
   getLumpSum() {
-    console.log("ddddddd:" + this.lumpSum);
     return this.lumpSum;
   }
 

@@ -1,42 +1,53 @@
 import { Balance } from "../model/balance";
-import { Payment } from "../model/payment";
 import { Loan } from "../model/loan";
-import { LoanController } from "../controller/loanController";
+import { inputSetter } from "../utils/inputSetter";
+import { BankController } from "./bankController";
 
-class BalanceController {
-  GetInput: number[];
-  amountPaid: number;
-  remaingAmount: number;
-  remaingEMIs: number;
+class BalanceController implements inputSetter {
+  emiMonthsLeft: number;
+  balanceData: Balance;
+  bankController: BankController;
 
-  constructor() {}
-
-  setValues(input) {
-    this.GetInput = input;
-    this.setInputDetails();
-    this.CalculateAmountPaid();
-    this.displayDetails();
+  constructor(input) {
+    this.setInputDetails(input);
   }
-  public setInputDetails() {
-    const ob = new Balance();
-    ob.setValues(this.GetInput);
-    console.log("received data to balance controller:" + this.GetInput);
-  }
-  public CalculateAmountPaid() {
-    const p1 = new Payment();
-    new Loan();
+  public setInputDetails(input) {
+    const BankName = input[1];
+    const Name = input[2];
+    const balanceMonth = input[3];
+    const amountPaid = this.countLoanAmountPaid(
+      this.bankController,
+      balanceMonth
+    );
 
-    if (this.GetInput[3] >= p1.getEmiNum()) {
-      console.log("received data to balance controller:" + this.amountPaid);
-    } else {
-      console.log("received data to balance controller:" + this.amountPaid);
-    }
-    this.remaingAmount = -this.amountPaid;
+    this.bankController = BankController.findAccount(BankName, Name);
+    const emiMonthsLeft = this.countEMIMonthsLeft(
+      this.bankController,
+      amountPaid
+    );
+    this.balanceData = new Balance(amountPaid, emiMonthsLeft);
+    this.displayBalanceDetails();
+    console.log("received data to payment controller:");
   }
-  public displayDetails() {
-    // console.log("received data to balance controller:" + this.amountPaid);
-    // console.log("received data to balance controller:" + this.remaingAmount);
-    // console.log("received data to balance controller:" + this.remaingEMIs);
+
+  displayBalanceDetails() {
+    const BankName = this.bankController.BankName;
+    const Name = this.bankController.Name;
+    const amountPaid = this.balanceData.amountPaid;
+    const emiMonthsLeft = this.balanceData.emiMonthsLeft;
+    console.log(
+      `display balance :::::: ${BankName} ${Name} ${amountPaid} ${emiMonthsLeft}`
+    );
+  }
+  countLoanAmountPaid(
+    accountData: BankController,
+    balanceMonth: number
+  ): number {
+    return 750;
+  }
+
+  countEMIMonthsLeft(loanData, amountPaid: number): number {
+    return 677;
   }
 }
 export { BalanceController };

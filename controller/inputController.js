@@ -12,6 +12,7 @@ var InputController = /** @class */ (function () {
         for (var i = 0; i < inputData.length; i++) {
             var token = inputData[i].split(" ");
             var key = token[0];
+<<<<<<< HEAD
             console.log("received data to input controller:" + key);
             switch (key) {
                 case "LOAN":
@@ -26,6 +27,20 @@ var InputController = /** @class */ (function () {
                     ob2.setValues(token);
                     // ob2.CalculateAmountPaid();
                     // ob2.displayDetails();
+=======
+            switch (key) {
+                case "LOAN":
+                    var loanController = new loanController_1.LoanController(token);
+                    loanController.allocateLoan();
+                    break;
+                case "PAYMENT":
+                    var paymentController = new paymentController_1.PaymentController(token);
+                    paymentController.addPaymentData();
+                    break;
+                case "BALANCE":
+                    var balanceController = new balanceController_1.BalanceController(token);
+                    balanceController.displayBalanceDetails();
+>>>>>>> 913e826561a45ae6cbccadfb850de74c71d7c562
                     break;
             }
         }

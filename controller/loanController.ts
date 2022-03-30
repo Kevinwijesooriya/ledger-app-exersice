@@ -1,42 +1,54 @@
 import { Loan } from "../model/loan";
 import { inputSetter } from "../utils/inputSetter";
-import { InputController } from "./inputController";
+import { BankController } from "./bankController";
 
 class LoanController implements inputSetter {
-  repayAmount: number;
-  interest: number;
-  emi: number;
+  loanData: Loan;
 
-  GetInput: number[];
-  constructor() {}
+  constructor(input) {
+    this.setInputDetails(input);
+  }
+  public setInputDetails(input) {
+    const BankName = input[1];
+    const Name = input[2];
+    const PrincipalAmount = input[3];
+    const NumberOfYear = input[4];
+    const rate = input[5];
+    const Interest: Number = this.calculateInterestAmount(
+      PrincipalAmount,
+      NumberOfYear,
+      rate
+    );
+    const AmountToPay: Number =
+      Number.parseInt(PrincipalAmount.toString()) +
+      Number.parseFloat(Interest.toString());
+    const EmiAmount = this.calculateInterestAmount(
+      PrincipalAmount,
+      NumberOfYear,
+      rate
+    );
 
-  setValues(input) {
-    this.GetInput = input;
-    this.setInputDetails();
-    this.CalculateInterest();
-    this.CalculateAmountToPay();
-    this.CalculateEmiAmount();
+    this.loanData = new Loan(
+      BankName,
+      Name,
+      PrincipalAmount,
+      NumberOfYear,
+      rate,
+      Interest,
+      AmountToPay,
+      EmiAmount
+    );
   }
-  public CalculateInterest() {
-    this.interest =
-      this.GetInput[3] * this.GetInput[4] * (this.GetInput[5] / 100);
-    return this.interest;
-  }
-  public CalculateAmountToPay() {
-    this.repayAmount = -(-this.GetInput[3] - this.interest);
-    return this.repayAmount;
-  }
-  public CalculateEmiAmount() {
-    this.emi = Math.ceil((this.repayAmount / 12) * this.GetInput[4]);
-    return this.emi;
-  }
-  public setInputDetails() {
-    const x = this.CalculateInterest();
-    const y = this.CalculateAmountToPay();
-    const v = this.CalculateEmiAmount();
 
-    const ob = new Loan();
-    ob.setValues(this.GetInput, x, y, v);
+  allocateLoan() {
+    const bankController = new BankController(this.loanData);
+    BankController.storeData(bankController);
+  }
+  calculateEmiAmount(AmountToPay, NumberOfYear) {
+    return Math.ceil(AmountToPay / (NumberOfYear * 12));
+  }
+  calculateInterestAmount(PrincipalAmount, NumberOfYear, rate) {
+    return Math.ceil((PrincipalAmount * NumberOfYear * rate) / 100);
   }
 }
 

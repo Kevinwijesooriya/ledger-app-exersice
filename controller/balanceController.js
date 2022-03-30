@@ -2,41 +2,56 @@
 exports.__esModule = true;
 exports.BalanceController = void 0;
 var balance_1 = require("../model/balance");
-var payment_1 = require("../model/payment");
-var loan_1 = require("../model/loan");
+var bankController_1 = require("./bankController");
 var BalanceController = /** @class */ (function () {
-    function BalanceController() {
-    }
-    BalanceController.prototype.setValues = function (input) {
-        this.GetInput = input;
-        this.setInputDetails();
-        this.CalculateAmountPaid();
-        this.displayDetails();
-    };
-    BalanceController.prototype.setInputDetails = function () {
-        var ob = new balance_1.Balance();
-        ob.setValues(this.GetInput);
-        console.log("received data to balance controller:" + this.GetInput);
-    };
-    BalanceController.prototype.CalculateAmountPaid = function () {
-        var p1 = new payment_1.Payment();
-        var ob = new loan_1.Loan();
-        if (this.GetInput[3] >= p1.getEmiNum()) {
-            this.amountPaid = loan_1.Loan.GetEmiAmount();
-            console.log("received data to balance controller:" + this.amountPaid);
-        }
-        else {
-            this.amountPaid = loan_1.Loan.GetEmiAmount();
-            console.log("received data to balance controller:" + this.amountPaid);
-        }
-        this.remaingAmount = loan_1.Loan.GetEmiAmount() - this.amountPaid;
-        this.remaingEMIs = Math.ceil(this.remaingAmount / loan_1.Loan.GetEmiAmount());
-    };
-    BalanceController.prototype.displayDetails = function () {
-        // console.log("received data to balance controller:" + this.amountPaid);
-        // console.log("received data to balance controller:" + this.remaingAmount);
-        // console.log("received data to balance controller:" + this.remaingEMIs);
-    };
-    return BalanceController;
-}());
+  function BalanceController(input) {
+    this.setInputDetails(input);
+  }
+  BalanceController.prototype.setInputDetails = function (input) {
+    var BankName = input[1];
+    var Name = input[2];
+    var balanceMonth = input[3];
+    var amountPaid = this.countLoanAmountPaid(
+      this.bankController,
+      balanceMonth
+    );
+    this.bankController = bankController_1.BankController.findAccount(
+      BankName,
+      Name
+    );
+    var emiMonthsLeft = this.countEMIMonthsLeft(
+      this.bankController,
+      amountPaid
+    );
+    this.balanceData = new balance_1.Balance(amountPaid, emiMonthsLeft);
+    this.displayBalanceDetails();
+    console.log("received data to payment controller:");
+  };
+  BalanceController.prototype.displayBalanceDetails = function () {
+    var BankName = this.bankController.BankName;
+    var Name = this.bankController.Name;
+    var amountPaid = this.balanceData.amountPaid;
+    var emiMonthsLeft = this.balanceData.emiMonthsLeft;
+    console.log(
+      "display balance :::::: "
+        .concat(BankName, " ")
+        .concat(Name, " ")
+        .concat(amountPaid, " ")
+        .concat(emiMonthsLeft)
+    );
+  };
+  BalanceController.prototype.countLoanAmountPaid = function (
+    accountData,
+    balanceMonth
+  ) {
+    return 750;
+  };
+  BalanceController.prototype.countEMIMonthsLeft = function (
+    loanData,
+    amountPaid
+  ) {
+    return 677;
+  };
+  return BalanceController;
+})();
 exports.BalanceController = BalanceController;
