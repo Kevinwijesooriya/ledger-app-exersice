@@ -14,7 +14,7 @@ var Loan = /** @class */ (function () {
         this.GetPrincipleAmount();
     }
     Loan.prototype.GetPrincipleAmount = function () {
-        console.log(this.PrincipalAmount, this.rate, this.NumberOfYear, this.Interest, this.AmountToPay, this.EmiAmount);
+        console.log(this.PrincipalAmount, ' , ', this.rate, ' , ', this.NumberOfYear, ' , ', this.Interest, ' , ', this.AmountToPay, ' , ', this.EmiAmount);
     };
     Loan.prototype.GetRate = function () { };
     Loan.prototype.GetNumberOfYears = function () { };

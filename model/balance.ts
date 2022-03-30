@@ -1,6 +1,8 @@
 class Balance {
   amountPaid: number;
   emiMonthsLeft: number;
+  EmiAmount: any;
+  AmountToPay: any;
 
   constructor(amountPaid, emiMonthsLeft) {
     this.amountPaid = amountPaid;
