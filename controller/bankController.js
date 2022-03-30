@@ -19,7 +19,10 @@ var BankController = /** @class */ (function () {
         this.allData = [];
         this.allData.push(bankController);
     };
-    BankController.findAccount = function (BankName, Name) { };
+    BankController.findAccount = function (BankName, Name) {
+        var loan = { BankName: 'IDIDI', Name: 'Dale', PrincipalAmount: '5000', NumberOfYear: '1', rate: '6', Interest: 300, AmountToPay: 5300, EmiAmount: 300 };
+        return loan;
+    };
     return BankController;
 }());
 exports.BankController = BankController;

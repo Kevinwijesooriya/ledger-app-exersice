@@ -12,7 +12,6 @@ var FileReader = /** @class */ (function () {
                 throw err;
             var inputData = data.toString().replace(/\r\n/g, "\n").split("\n");
             new inputController_1.InputController(inputData);
-            console.log(inputData);
         });
     };
     return FileReader;
